@@ -17,7 +17,7 @@ class App(ctk.CTk):
     def __init__(self):
         super().__init__()
 
-        self.title("Ordenador de Dataset")
+        self.title("api Dataset")
         self.geometry("800x500")
 
         ctk.set_appearance_mode("system")
