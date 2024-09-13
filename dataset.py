@@ -2,13 +2,13 @@ class Dataset:
 
     def __init__(self, dataframe):
         self.df = dataframe
-    #literlamente el nombre lo dice
+    #selecciona la variable
     def seleccionar_variable(self, variable):
         if variable in self.df.columns:
             return self.df[variable]
         else:
             raise ValueError("Variable no encontrada en el DataFrame")
-   #sel elige el coso de ordenamiento
+   #sel elige el algoritmo de ordenamiento
     def ordenar_datos(self, variable, algoritmo):
         if variable not in self.df.columns:
             raise ValueError(f"Variable {variable} no encontrada en el DataFrame")

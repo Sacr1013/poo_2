@@ -2,15 +2,17 @@ import customtkinter as ctk
 from tkinter import ttk
 from consumoapi import consumo, obteApi
 from customtkinter import CTkFont 
-from algorde import pro_dats
-from datasex import Dataset
+from algorde import DatProceso
+from dataset import Dataset
 
 
 # Configuración de la API y procesamiento inicial de los datos
 #API_URL = 'https://www.datos.gov.co/resource/fs93-tx8v.json'
 API_URL = obteApi()
 datos = consumo(API_URL)
-df = pro_dats(datos)
+#df = pro_dats(datos)
+processor_data = DatProceso()
+df = processor_data.pro_dats(datos)
 processor = Dataset(df)  
 # Clase para la interfaz gráfica
 class App(ctk.CTk):
