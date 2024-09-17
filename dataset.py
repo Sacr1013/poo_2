@@ -1,7 +1,10 @@
+
+from algorde import DatProceso
 class Dataset:
 
     def __init__(self, dataframe):
         self.df = dataframe
+        self.proceso = DatProceso()
     #selecciona la variable
     def seleccionar_variable(self, variable):
         if variable in self.df.columns:
@@ -15,9 +18,9 @@ class Dataset:
         
         # Ordenar utilizando el algoritmo seleccionado
         if algoritmo == 'quicksort':
-            return self.df.sort_values(by=variable, kind='quicksort')
+            return self.proceso.quicsort(by=variable, kind='quicksort')
         elif algoritmo == 'mergesort':
-            return self.df.sort_values(by=variable, kind='mergesort')
+            return self.proceso.mergesort(by=variable, kind='mergesort')
         else:
             raise ValueError("Algoritmo de ordenamiento no reconocido")
         
