@@ -7,13 +7,13 @@ from dataset import Dataset
 
 
 # Configuración de la API y procesamiento inicial de los datos
-#API_URL = 'https://www.datos.gov.co/resource/fs93-tx8v.json'
 API_URL = obteApi()
 datos = consumo(API_URL)
-#df = pro_dats(datos)
 processor_data = DatProceso()
 df = processor_data.pro_dats(datos)
 processor = Dataset(df)  
+
+
 # Clase para la interfaz gráfica
 class App(ctk.CTk):
     def __init__(self):
@@ -26,7 +26,7 @@ class App(ctk.CTk):
         ctk.set_default_color_theme("green")
 
         custom_font = CTkFont(family="Verdana", size=14)
-
+        
         self.label_variable = ctk.CTkLabel(self, text="Seleccione una variable:", font=custom_font)
         self.label_variable.pack(pady=10)
 
@@ -52,7 +52,7 @@ class App(ctk.CTk):
         self.tree.heading("cantidad", text="Cantidad")
       
         self.style = ttk.Style()
-        
+
         # Configuración del Treeview
         self.style.configure("Treeview",
                             background="#272626",  # Color de fondo
@@ -63,14 +63,13 @@ class App(ctk.CTk):
                             background ="black",  # Color de fondo del encabezado
                             foreground="#00FF80",
                             relief="flat")  # Color del texto del encabezado
+       
         self.style.map("Treeview",
                        background=[('selected', '#00FF80')],  # Color de fondo cuando está seleccionado
                        foreground=[('selected', '#000000')])
         self.tree.pack(pady=10, fill="both", expand=True)
         
         self.mostrar_datos(df)
-
-
 
     def mostrar_datos(self, dataframe):
         # Limpiar el Treeview
