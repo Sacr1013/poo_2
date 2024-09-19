@@ -39,13 +39,6 @@ class Dataset:
 
 
 
-
-
-
-
-
-
-
     '''
         indices_ordenados = sorted(range(len(datos_a_ordenar)), key=lambda k:  datos_ordenados [k])
         # Reordenar el DataFrame según los índices obtenidos
