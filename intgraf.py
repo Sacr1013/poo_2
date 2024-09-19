@@ -91,3 +91,5 @@ class App(ctk.CTk):
             self.mostrar_datos(df_ordenado) # Insertar los resultados
         except ValueError as e:
             print(f"Error: {str(e)}")
+
+#correcto              

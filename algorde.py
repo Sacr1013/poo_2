@@ -39,3 +39,6 @@ class DatProceso:
         left = self.mergesort(arr[:mid], key)
         right = self.mergesort(arr[mid:], key)
         return merge(left, right)
+    
+
+#correcto      
